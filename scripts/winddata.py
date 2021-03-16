@@ -204,7 +204,7 @@ class WidgetsWindData(object):
         load_windsonic_wind_data_button.on_click(
             self.load_windsonic_wind_data_button_click)
         self.height_adjustment_checkbox = widgets.Checkbox(
-            description='Ajustar alturas', value=False, layout=Layout(width='30%'), style={'description_width': 'initial'})
+            description='Ajustar alturas (Soma vetorial)', value=False, layout=Layout(width='30%'), style={'description_width': 'initial'})
         self.rl_checkbox = widgets.Checkbox(description='Utilizar RL', value=False, layout=Layout(
             width='30%'), style={'description_width': 'initial'})
         self.rt_checkbox = widgets.Checkbox(description='Utilizar RT', value=False, layout=Layout(
@@ -213,7 +213,7 @@ class WidgetsWindData(object):
             width='30%'), style={'description_width': 'initial'})
         self.bins_int_text = widgets.IntText(description='Intervalos:', value=10, layout=Layout(
             width='30%'), style={'description_width': 'initial'})
-        self.step_int_text = widgets.IntText(description='Step:', value=1, layout=Layout(
+        self.step_int_text = widgets.IntText(description='Redutor:', value=1, layout=Layout(
             width='30%'), style={'description_width': 'initial'})
         self.speed_unit_text = widgets.Text(
             description='Unidade (m/s):', value='m/s', layout=Layout(width='30%'), style={'description_width': 'initial'})
@@ -230,13 +230,13 @@ class WidgetsWindData(object):
         wind_adjustments_accordion = widgets.Accordion(
             children=[wind_adjustments_vbox])
         wind_adjustments_accordion.set_title(
-            0, 'Ajustes a serem incluídos nos cálculos de velocidades processedes')
+            0, 'Ajustes a serem incluídos nos cálculos de velocidades processadas')
         other_adjustments_accordion = widgets.Accordion(
             children=[self.windrose_percentage_angle_float_text, self.bins_int_text, self.step_int_text, self.speed_unit_text])
         other_adjustments_accordion.set_title(
             0, 'Ângulo para a rosa dos ventos')
         other_adjustments_accordion.set_title(1, 'Intervalos')
-        other_adjustments_accordion.set_title(2, 'Step')
+        other_adjustments_accordion.set_title(2, 'Amostragem de dados')
         other_adjustments_accordion.set_title(3, 'Unidade de velocidade')
         tab_contents = ['Dados de Ventos',
                         'Ajustes de Cálculo', 'Outros Ajustes']
